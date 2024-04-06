@@ -13,22 +13,33 @@
     </properties>
 
     <plugin>
-    <groupId> com.learn.jenkinspractice.mavenjenkinsproject</groupId>
-    <artifactId>maven-jenkins</artifactId>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-jar-plugin</artifactId>
+    <version>2.2</version>
+    <!-- nothing here -->
+  </plugin>
+  <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-assembly-plugin</artifactId>
+    <version>2.2-beta-4</version>
+    <configuration>
+      <descriptorRefs>
+        <descriptorRef>jar-with-dependencies</descriptorRef>
+      </descriptorRefs>
+      <archive>
+        <manifest>
+          <mainClass>com.learn.jenkinspractice.mavenjenkinsproject.MavenJenkinsProject</mainClass>
+        </manifest>
+      </archive>
+    </configuration>
     <executions>
-        <execution>
-            <configuration>
-                <mainClass>MavenJenkinsProject</mainClass>
-                <attachToBuild>true</attachToBuild>
-                <filename>
-                 mavenjenkins
-                </filename>
-            </configuration>
-            <goals>
-                <goal>one-jar</goal>
-            </goals>
-        </execution>
+      <execution>
+        <phase>package</phase>
+        <goals>
+          <goal>single</goal>
+        </goals>
+      </execution>
     </executions>
-</plugin>
+  </plugin>
     
 </project>
