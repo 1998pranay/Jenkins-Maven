@@ -11,4 +11,24 @@
         <maven.compiler.target>17</maven.compiler.target>
         <exec.mainClass>com.learn.jenkinspractice.mavenjenkinsproject.MavenJenkinsProject</exec.mainClass>
     </properties>
+
+    <plugin>
+    <groupId> com.learn.jenkinspractice.mavenjenkinsproject</groupId>
+    <artifactId>maven-jenkins</artifactId>
+    <executions>
+        <execution>
+            <configuration>
+                <mainClass>MavenJenkinsProject</mainClass>
+                <attachToBuild>true</attachToBuild>
+                <filename>
+                 mavenjenkins
+                </filename>
+            </configuration>
+            <goals>
+                <goal>one-jar</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+    
 </project>
